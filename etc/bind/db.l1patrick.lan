@@ -1,15 +1,30 @@
-
 ;
 ; BIND data file for local loopback interface
 ;
+
+
 $TTL    604800
-@       IN      SOA     localhost. root.localhost. (
-                              2         ; Serial
-                         604800         ; Refresh
-                          86400         ; Retry
-                        2419200         ; Expire
-                         604800 )       ; Negative Cache TTL
+@       IN      SOA     l1patrick.lan. root.l1patrick.lan. (
+                              1         ; Serial
+                             8H         ; Refresh
+                             2H         ; Retry
+                             4W         ; Expire
+                             1D )       ; Negative Cache TTL
 ;
-@       IN      NS      localhost.
-@       IN      A       127.0.0.1
-@       IN      AAAA    ::1
+
+@                       IN      NS      l1patrick.lan.
+
+@                       IN      A       192.168.15.49
+
+@                       IN      AAAA    ::1
+
+mail                    A       192.168.15.49
+
+l1patrick.lan.          A       192.168.15.49
+server                  A       192.168.15.49
+
+virtual                 A       192.168.15.49
+
+router                  A       192.168.15.49
+gateway                 CNAME   192.168.15.49
+gw                      CNAME   192.168.15.49
